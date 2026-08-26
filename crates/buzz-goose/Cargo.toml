@@ -1,0 +1,30 @@
+[package]
+name = "buzz-goose"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Bounded Goose runtime adapter for Buzz execution envelopes"
+
+[lib]
+name = "buzz_goose"
+path = "src/lib.rs"
+
+[[bin]]
+name = "buzz-goose"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { workspace = true, features = ["fs", "process"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+thiserror = { workspace = true }
+clap = { version = "4", features = ["derive", "env"] }
+
+[dev-dependencies]
+tempfile = "3"
