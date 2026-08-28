@@ -47,9 +47,12 @@
 ```
 
 ### Projects Integrated (Ready)
-- BossListers (photo → post everywhere)
-- video-bot-pipeline (Remotion rendering)
-- relay (GBP automation)
+- **BossListers** (photo → AI extract → post to 27 marketplaces + 8 social)
+  - Includes: BossBrain profit analyzer
+  - Supports: Existing inventory OR new sourcing
+  - Revenue engine: Auto-identifies profitable items
+- **video-bot-pipeline** (Remotion rendering)
+- **relay** (GBP automation)
 - Custom agents (awaiting Goose config)
 
 ---
@@ -80,12 +83,23 @@ OLLAMA_BASE_URL=http://localhost:11434
 - Add agent definition for BossListers workflow
 - Test calling Ollama → Goose → Buzz
 
-**5. Build Test Workflow**
+**5. Build Test Workflows**
+
+**Workflow A: New Sourcing**
 ```
-Channel: #bosslister-posting
-Task: "Extract product from photo"
-→ Goose calls Ollama (local)
-→ Results post to channel
+Channel: #find-profitable-items
+Scan Walmart/Dollar Tree → Extract → BossBrain ROI
+→ If profitable: Auto-list everywhere
+→ Track sales
+```
+
+**Workflow B: Existing Inventory** (PRIMARY)
+```
+Channel: #sell-my-inventory
+Upload item you own → AI extract details
+→ Enter cost paid → BossBrain calculates profit
+→ If profitable: Auto-post to all 27 marketplaces + 8 social
+→ BossBrain tracks sales/ROI
 ```
 
 ### Session 3: Full Integration
